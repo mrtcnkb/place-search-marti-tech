@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#B0E866</color>
+    <color name="colorPrimary">#444444</color>
     <color name="colorPrimaryDark">#689F38</color>
-    <color name="colorAccent">#64DD17</color>
-    <color name="martiGreen">#B0E866</color>
+    <color name="colorAccent">#1B5E20</color>
+    <color name="martiGreen">#689F38</color>
 </resources>
