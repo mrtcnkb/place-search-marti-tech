@@ -20,13 +20,13 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", "\"https://maps.googleapis.com/maps/api/\"")
-            buildConfigField("String", "API_KEY", "\"AIzaSyBXng0apvE1wfGnqSkSguiMlDl9GuCKcn4\"")
+            buildConfigField("String", "API_KEY", "\"AIzaSyCC9J_SLmrWh2hTug5oA2F5ptSI-SkrLB4\"")
         }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", "\"https://maps.googleapis.com/maps/api/\"")
-            buildConfigField("String", "API_KEY", "\"AIzaSyBXng0apvE1wfGnqSkSguiMlDl9GuCKcn4\"")
+            buildConfigField("String", "API_KEY", "\"AIzaSyCC9J_SLmrWh2hTug5oA2F5ptSI-SkrLB4\"")
         }
     }
 }

@@ -15,7 +15,7 @@ class PlaceSearchMartiTechApplication: Application() {
         super.onCreate()
         startKoin {
             androidContext(this@PlaceSearchMartiTechApplication)
-            modules(listOf(viewModelModule, networkModule, repositoryModule))
+            modules(listOf(viewModelModule, networkModule, repositoryModule, usecaseModule))
         }
     }
 

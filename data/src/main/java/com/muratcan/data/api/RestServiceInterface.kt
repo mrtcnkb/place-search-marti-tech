@@ -1,7 +1,7 @@
 package com.muratcan.data.api
 
 import com.muratcan.data.BuildConfig
-import com.muratcan.model.SearchModel.SearchedPlaceResponse
+import com.muratcan.model.search.SearchedPlaceResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,7 +11,7 @@ import retrofit2.http.Query
 interface RestServiceInterface {
 
     @GET("place/textsearch/json")
-    fun fetchSearchedPlaces(
+    suspend fun fetchSearchedPlaces(
         @Query("input") input: String,
         @Query("key") key: String? = BuildConfig.API_KEY,
         @Query("inputtype") inputType: String? = "textquery"

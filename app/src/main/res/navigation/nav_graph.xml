@@ -7,16 +7,45 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.muratcan.placesearchmartitech.ui.view.SearchFragment"
+        android:name="com.muratcan.placesearchmartitech.ui.view.search.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search">
         <action
             android:id="@+id/action_searchFragment_to_searchResultMapFragment"
-            app:destination="@id/searchResultMapFragment" />
+            app:destination="@id/searchResultMapFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left">
+            <argument
+                android:name="searchResult"
+                android:defaultValue="@null"
+                app:argType="com.muratcan.model.search.Result"
+                app:nullable="true" />
+        </action>
     </fragment>
     <fragment
         android:id="@+id/searchResultMapFragment"
-        android:name="com.muratcan.placesearchmartitech.ui.view.SearchResultMapFragment"
+        android:name="com.muratcan.placesearchmartitech.ui.view.map.SearchResultMapFragment"
         android:label="fragment_search_result_map"
-        tools:layout="@layout/fragment_search_result_map" />
+        tools:layout="@layout/fragment_search_result_map" >
+        <action
+            android:id="@+id/action_searchResultMapFragment_to_markerDetailFragment"
+            app:destination="@id/markerDetailFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left">
+            <argument
+                android:name="markerResult"
+                android:defaultValue="@null"
+                app:argType="com.muratcan.model.search.Result"
+                app:nullable="true" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/markerDetailFragment"
+        android:name="com.muratcan.placesearchmartitech.ui.view.detail.MarkerDetailFragment"
+        android:label="fragment_marker_detail"
+        tools:layout="@layout/fragment_marker_detail" />
 </navigation>

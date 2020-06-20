@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp"
-    tools:context=".ui.view.SearchFragment">
+    tools:context=".ui.view.search.SearchFragment">
 
     <LinearLayout
         android:id="@+id/search_frame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_border"
+        android:background="@drawable/ic_header_background"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="15dp"
@@ -20,27 +19,26 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/search_input"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="search" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/search_button"
-            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="search" />
+            android:hint="Search for a place or address" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_search"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="15dp"
+        android:layout_margin="15dp"
         android:background="@drawable/ic_border"
-        android:padding="15dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_frame" />
+        app:layout_constraintTop_toBottomOf="@id/search_frame"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
