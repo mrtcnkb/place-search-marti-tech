@@ -45,7 +45,14 @@ class SearchFragment : Fragment(),
         with(viewModel) {
             searchResult.observeNonNull(this@SearchFragment) {
                 searchResultAdapter.setPostItemList(it.results)
+                checkForEmptyResultScreen(it.results.isEmpty())
             }
+        }
+    }
+
+    private fun checkForEmptyResultScreen(isempty: Boolean) {
+        requireBinding{
+            emptyScreen.root.visibility = if (isempty) View.VISIBLE else View.GONE
         }
     }
 
@@ -67,12 +74,12 @@ class SearchFragment : Fragment(),
         override fun afterTextChanged(p0: Editable?) {
             requireBinding {
                 p0?.let {
-                    emptyScreen.root.visibility =
-                        if (it.isNotBlank()) {
-                            viewModel.fetchResult(it.toString())
-                            View.GONE
-                        }
-                        else View.VISIBLE
+                    checkForEmptyResultScreen(it.isBlank())
+                    if (it.isBlank()) {
+                        searchResultAdapter.clearList()
+                    } else {
+                        viewModel.fetchResult(it.toString())
+                    }
                 }
             }
 

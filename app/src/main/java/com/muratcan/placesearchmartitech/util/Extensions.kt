@@ -21,8 +21,5 @@ fun <T> LiveData<T>.observeNonNull(owner: LifecycleOwner, observer: (t: T) -> Un
 fun ImageView.loadImage(uri: Any) {
     Glide.with(this.context)
         .load(uri)
-        .apply(
-            RequestOptions()
-                .placeholder(R.drawable.ic_transparent)
-        ).into(this)
+        .into(this)
 }
