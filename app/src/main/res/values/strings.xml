@@ -4,7 +4,6 @@
     <string name="placeholder_search_empty_title">There is nothing to show</string>
     <string name="placeholder_search_empty_desc">Please type something about the place you want to search</string>
     <string name="placeholder_user_rating_place">users rated this place</string>
-    <string name="placeholder_name">Name :</string>
     <string name="placeholder_address">Address :</string>
     <string name="placeholder_lat">Latitude :</string>
     <string name="placeholder_lng">Longitude :</string>

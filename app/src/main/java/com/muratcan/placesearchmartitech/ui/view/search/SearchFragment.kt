@@ -59,7 +59,9 @@ class SearchFragment : Fragment(),
     private fun initRecycler() {
         searchResultAdapter = SearchResultListAdapter(object: ItemClickListener {
             override fun onItemClick(view: View, item: Result) {
-                findNavController().navigate(R.id.action_searchFragment_to_searchResultMapFragment, bundleOf("searchResult" to item))
+                Handler().postDelayed({
+                    findNavController().navigate(R.id.action_searchFragment_to_searchResultMapFragment, bundleOf("searchResult" to item))
+                }, 300)
             }
         })
         LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false).let {

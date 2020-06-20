@@ -25,7 +25,5 @@ class PlaceSearchMartiTechApplication: Application() {
 
     companion object {
         private var instance = PlaceSearchMartiTechApplication()
-        val context: Context
-            get() = instance.applicationContext
     }
 }

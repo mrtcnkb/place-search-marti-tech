@@ -29,7 +29,6 @@ class SearchResultMapFragment : Fragment(), ViewBindingHolder<FragmentSearchResu
     private lateinit var mMap: GoogleMap
     private lateinit var mapInfo: MapInfo
 
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? = initBinding(FragmentSearchResultMapBinding.inflate(layoutInflater), this) {
         observeOperation()
@@ -50,9 +49,9 @@ class SearchResultMapFragment : Fragment(), ViewBindingHolder<FragmentSearchResu
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        requireBinding {
-            mapView.onCreate(savedInstanceState)
-            mapView.getMapAsync(this@SearchResultMapFragment)
+        with(requireBinding().mapView) {
+            onCreate(savedInstanceState)
+            getMapAsync(this@SearchResultMapFragment)
         }
     }
 
@@ -61,16 +60,15 @@ class SearchResultMapFragment : Fragment(), ViewBindingHolder<FragmentSearchResu
         mMap.apply {
             addMarker(MarkerOptions().position(mapInfo.latLng).title(mapInfo.title).snippet(mapInfo.snipped))
             moveCamera(CameraUpdateFactory.newLatLng(mapInfo.latLng))
-        }
 
-        CameraPosition.Builder().target(mapInfo.latLng).zoom(15f).build().apply {
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(this))
-        }
+            CameraPosition.Builder().target(mapInfo.latLng).zoom(15f).build().also {
+                animateCamera(CameraUpdateFactory.newCameraPosition(it))
+            }
 
-        mMap.setOnInfoWindowClickListener {
-            findNavController().navigate(R.id.action_searchResultMapFragment_to_markerDetailFragment, bundleOf("markerResult" to viewModel.searchData.value))
+            setOnInfoWindowClickListener {
+                findNavController().navigate(R.id.action_searchResultMapFragment_to_markerDetailFragment, bundleOf("markerResult" to viewModel.searchData.value))
+            }
         }
-
     }
     override fun onResume() {
         super.onResume()
@@ -101,12 +99,6 @@ class SearchResultMapFragment : Fragment(), ViewBindingHolder<FragmentSearchResu
         arguments?.getParcelable<Result>("searchResult")?.let {
             viewModel.searchData.value = it
         }
-    }
-
-    companion object {
-        private const val DEF_LAT = 41.006564
-        private const val DEF_LNG = 29.075129
-        private const val DEF_TXT = "MartiTech"
     }
 
 }

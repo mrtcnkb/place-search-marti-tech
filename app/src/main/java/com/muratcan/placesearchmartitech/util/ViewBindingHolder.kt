@@ -1,6 +1,5 @@
 package com.muratcan.placesearchmartitech.util
 
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
@@ -10,7 +9,13 @@ import androidx.viewbinding.ViewBinding
 
 /**
  * Holds and manages ViewBinding inside a Fragment.
+ *
+ * Author : https://android.jlelse.eu/@ffvanderlaan
  * https://gist.github.com/Frank1234/94211000cae3ec7652442bbc18172f25
+ *
+ * To clean up our code we created a ViewBindingHolder class that takes care of the binding’s
+ * lifecycle and supplies some helper methods that keep the code in our fragments safe and short.
+ *
  */
 interface ViewBindingHolder<T : ViewBinding> {
 
@@ -34,7 +39,7 @@ interface ViewBindingHolder<T : ViewBinding> {
 class ViewBindingHolderImpl<T : ViewBinding> : ViewBindingHolder<T>, LifecycleObserver {
 
     override var binding: T? = null
-    var lifecycle: Lifecycle? = null
+    private var lifecycle: Lifecycle? = null
 
     private lateinit var fragmentName: String
 

@@ -5,8 +5,6 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
-import com.muratcan.placesearchmartitech.R
 
 /**
  * Created by MuratCan on 18.06.2020.
