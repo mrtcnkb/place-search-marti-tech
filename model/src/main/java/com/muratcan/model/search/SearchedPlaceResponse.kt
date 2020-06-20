@@ -1,4 +1,4 @@
-package com.muratcan.model.SearchModel
+package com.muratcan.model.search
 
 data class SearchedPlaceResponse(
     val next_page_token: String,

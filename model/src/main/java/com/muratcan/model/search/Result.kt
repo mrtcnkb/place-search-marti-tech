@@ -1,5 +1,9 @@
-package com.muratcan.model.SearchModel
+package com.muratcan.model.search
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Result(
     val business_status: String,
     val formatted_address: String,
@@ -16,4 +20,4 @@ data class Result(
     val reference: String,
     val types: List<String>,
     val user_ratings_total: Int
-)
+): Parcelable
