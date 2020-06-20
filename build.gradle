@@ -15,6 +15,7 @@ buildscript {
 }
 
 ext {
+    mapVersion = '17.0.0'
     lifecycleVersion = '2.2.0'
     glideVersion = "4.10.0"
     navigationVersion = "2.2.2"
