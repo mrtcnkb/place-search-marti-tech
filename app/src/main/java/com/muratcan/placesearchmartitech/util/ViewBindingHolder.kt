@@ -43,7 +43,6 @@ class ViewBindingHolderImpl<T : ViewBinding> : ViewBindingHolder<T>, LifecycleOb
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroyView() {
-        Log.e("testt","testt on destroy")
         lifecycle?.removeObserver(this) // not mandatory, but preferred
         lifecycle = null
         binding = null

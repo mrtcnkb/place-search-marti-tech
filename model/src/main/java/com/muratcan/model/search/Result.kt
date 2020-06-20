@@ -2,6 +2,7 @@ package com.muratcan.model.search
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
+import java.text.DecimalFormat
 
 @Parcelize
 data class Result(
@@ -20,4 +21,13 @@ data class Result(
     val reference: String,
     val types: List<String>,
     val user_ratings_total: Int
-): Parcelable
+): Parcelable {
+    fun getRatingBarValue(): Float{
+        DecimalFormat("0.0").apply {
+            return this.format(rating).replace(',','.').toFloat()
+        }
+    }
+
+    fun getRatingTotal() =
+        user_ratings_total.toString()
+}

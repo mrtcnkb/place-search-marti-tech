@@ -24,7 +24,7 @@
             android:textColorHint="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Search for a place or address" />
+            android:hint="@string/placeholder_search_input" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -40,5 +40,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/search_frame"
         app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <include
+        android:id="@+id/empty_screen"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        layout="@layout/empty_layout"
+        android:visibility="visible"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_frame"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+    </include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,7 @@ import kotlinx.android.parcel.Parcelize
 data class Location(
     val lat: Double,
     val lng: Double
-): Parcelable
+): Parcelable {
+    fun getFormattedLat() = lat.toString()
+    fun getFormattedLng() = lng.toString()
+}

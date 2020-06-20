@@ -52,9 +52,7 @@ class SearchFragment : Fragment(),
     private fun initRecycler() {
         searchResultAdapter = SearchResultListAdapter(object: ItemClickListener {
             override fun onItemClick(view: View, item: Result) {
-                Handler().postDelayed({
-                    findNavController().navigate(R.id.action_searchFragment_to_searchResultMapFragment, bundleOf("searchResult" to item))
-                }, 400)
+                findNavController().navigate(R.id.action_searchFragment_to_searchResultMapFragment, bundleOf("searchResult" to item))
             }
         })
         LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false).let {
@@ -67,10 +65,17 @@ class SearchFragment : Fragment(),
 
     private val textChangeListener = object: TextWatcher{
         override fun afterTextChanged(p0: Editable?) {
-            p0?.let {
-                if (it.isNotBlank())
-                    viewModel.fetchResult(it.toString())
+            requireBinding {
+                p0?.let {
+                    emptyScreen.root.visibility =
+                        if (it.isNotBlank()) {
+                            viewModel.fetchResult(it.toString())
+                            View.GONE
+                        }
+                        else View.VISIBLE
+                }
             }
+
         }
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
         override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}

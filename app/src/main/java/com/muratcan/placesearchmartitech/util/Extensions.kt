@@ -24,6 +24,5 @@ fun ImageView.loadImage(uri: Any) {
         .apply(
             RequestOptions()
                 .placeholder(R.drawable.ic_transparent)
-                .error(R.drawable.no_photo_available)
         ).into(this)
 }
